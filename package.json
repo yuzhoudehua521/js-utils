@@ -2,7 +2,7 @@
   "name": "js-utils",
   "version": "1.0.0",
   "description": "js工具库",
-  "main": "index.js",
+  "main": "dist/js-utils.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
@@ -11,13 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/yuzhoudehua521/js-utils.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "yuzhoudehua",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/yuzhoudehua521/js-utils/issues"
   },
   "homepage": "https://github.com/yuzhoudehua521/js-utils#readme",
   "devDependencies": {
-    "webpack": "^4.44.1"
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }
