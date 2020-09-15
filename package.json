@@ -10,7 +10,7 @@
     "object"
   ],
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --watch"
   },
   "repository": {
     "type": "git",
