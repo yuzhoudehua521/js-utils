@@ -1,5 +1,4 @@
 node_modules
-apply
 
 # local env files
 .env.local
