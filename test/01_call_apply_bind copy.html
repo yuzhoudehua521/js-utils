@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.call = function (obj, ...args) {
+        // fn.call(obj) => obj.fn
+
+        if (obj === undefined || obj === null) {
+          obj = window;
+        }
+        //this = fn 临时为obj赋予fn,
+        obj.temFn = this;
+        // console.log(obj.temFn);  fn
+
+        //fn(...args)
+        const result = obj.temFn(...args);
+        delete obj.temFn;
+        return result;
+      };
+
+      Function.prototype.apply = function (obj, args) {
+        if (obj === undefined || obj === null) {
+          obj = window;
+        }
+        obj.temFn = this;
+        const result = obj.temFn(...args);
+        delete obj.temFn;
+        return result;
+      };
+
+      Function.prototype.bind = function (obj, ...args) {
+        //...args 优先级比...args1更高
+        return (...args1) => {
+          if (obj === undefined || obj === null) {
+            obj = window;
+          }
+          obj.temFn = this;
+          const result = obj.temFn(...args, ...args1);
+          delete obj.temFn;
+          return result;
+
+          //this = fn
+          // return this.call(obj, ...args, ...args1);
+        };
+      };
+    </script>
+
+    <script>
+      /*
+        全局变量： window的属性
+        全局函数： window的方法
+      */
+
+      function fn(a, b) {
+        this.apple = 3;
+        console.log(a, b, this);
+      }
+
+      fn(2, 3);
+      console.log(apple);
+      const obj = { M: 3 };
+      fn.call(obj, 5, 5); //obj.fn(5, 5)
+      fn.apply(obj, [55, 66]);
+      fn.bind(obj, 4, 444)();
+    </script>
+  </body>
+</html>
