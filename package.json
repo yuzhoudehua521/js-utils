@@ -1,10 +1,15 @@
 {
-  "name": "js-utils",
-  "version": "1.0.0",
+  "name": "js-utils_yuzhoudehua",
+  "version": "1.0.1",
   "description": "js工具库",
   "main": "dist/js-utils.js",
+  "keywords": [
+    "js",
+    "function",
+    "array",
+    "object"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
   "repository": {
