@@ -24,3 +24,7 @@ export { difference } from "./array/difference";
 export { merge } from "./array/merge";
 export { pull, pullAll } from "./array/pull";
 export { drop, dropRight } from "./array/drop";
+export { newInstance } from "./object/newInstance";
+export { newInstanceOf } from "./object/newInstanceOf";
+export { mergeObject } from "./object/mergeObject";
+export { shallowClone, deepClone } from "./object/clone";

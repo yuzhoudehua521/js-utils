@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../dist/js-utils.js"></script>
+
+    <script>
+      // 浅拷贝
+      const obj = { x: "abc", y: { m: 1 } };
+
+      const obj1Clone = jsU.shallowClone(obj);
+      console.log(obj1Clone);
+
+      //深拷贝
+      const obj1 = {
+        a: 1,
+        b: ["e", "f", "g"],
+        c: { h: { i: 2 } },
+        d: function () {},
+      };
+
+      const obj2Clone = jsU.deepClone(obj1);
+      console.log(obj2Clone);
+    </script>
+  </body>
+</html>
