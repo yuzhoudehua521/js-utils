@@ -1,6 +1,6 @@
 {
   "name": "js-utils_yuzhoudehua",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "js工具库",
   "main": "dist/js-utils.js",
   "keywords": [
@@ -10,7 +10,8 @@
     "object"
   ],
   "scripts": {
-    "build": "webpack --watch"
+    "build": "webpack --mode production",
+    "dev": "webpack --watch"
   },
   "repository": {
     "type": "git",

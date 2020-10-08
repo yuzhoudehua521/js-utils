@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../dist//js-utils.js"></script>
+
+    <script>
+      function fetchUser() {
+        return new Promise((resolve, reject) => {
+          fetch("https://api.github.com/users/superman66").then(
+            (data) => {
+              resolve(data.json());
+            },
+            (error) => {
+              reject(error);
+            }
+          );
+        });
+      }
+      /**
+       * Generator yield方式
+       */
+      function* fetchUserByGenerator() {
+        const user = yield fetchUser();
+        return user;
+      }
+
+      const g = fetchUserByGenerator();
+      const result = g.next().value; //return user;
+      result.then(
+        (v) => {
+          console.log(v);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+      /**
+       * async 方式 async 函数返回一个 Promise 对象.async 函数内部的异步操作都执行完，才会执行 then 方法的回调。
+       */
+      async function getUserByAsync() {
+        let user = await fetchUser();
+        return user;
+      }
+      getUserByAsync().then((v) => console.log(v));
+    </script>
+  </body>
+</html>
